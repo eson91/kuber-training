@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginxserver
+  template:
+    metadata:
+      labels:
+        app: nginxserver
+    spec:
+      containers:
+      - name: nginx
+        image: quay.io/shruti1988/webapp
